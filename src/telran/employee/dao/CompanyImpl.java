@@ -26,7 +26,8 @@ public class CompanyImpl implements Company {
         for (int i = 0; i < size; i++) {
             if(employees[i].getId() == id) {
                 victim = employees[i];
-                employees[i] = employees[--size];
+                System.arraycopy(employees,i + 1,employees,i,size - i - 1);
+                employees[--size] = null;
                 break;
             }
         }
